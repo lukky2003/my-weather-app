@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="container-main">
+      <h1>Weather <strong>Forecast</strong></h1>
+
+      <div class="test-div">
+        <form class="input-group">
+          <input
+            type="search"
+            class="form-control"
+            id="search-input"
+            placeholder="Search new place"
+          />
+          <button class="btn btn-outline-secondary example" type="submit">
+            Search
+          </button>
+
+          <button
+            class="btn btn-outline-secondary example"
+            id="current-location-btn"
+            type="submit"
+          >
+            Current
+          </button>
+        </form>
+      </div>
+
+      <div class="container px-5 py-5">
+        <div class="row">
+          <div class="col mx-1">
+            <button class="card card-link" id="barcelona" type="submit">
+              <img
+                src="./images/barcelona.jpg"
+                class="img-top"
+                alt="Barcelona, Spain"
+              />
+              <p class="city-name">Barcelona, Spain</p>
+            </button>
+          </div>
+          <div class="col mx-1">
+            <button class="card card-link" id="berlin" type="submit">
+              <img
+                src="./images/berlin.jpg"
+                class="img-top"
+                alt="Berlin, Germany"
+              />
+              <p class="city-name">Berlin, Germany</p>
+            </button>
+          </div>
+          <div class="col mx-1">
+            <button class="card card-link" id="new-york" type="submit">
+              <img
+                src="./images/new-york.jpg"
+                class="img-top"
+                alt="New York, USA"
+              />
+              <p class="city-name">New York, USA</p>
+            </button>
+          </div>
+          <div class="col mx-1">
+            <button class="card card-link" id="paris" type="submit">
+              <img
+                src="./images/paris.jpg"
+                class="img-top"
+                alt="Paris, France"
+              />
+              <p class="city-name">Paris, France</p>
+            </button>
+          </div>
+          <div class="col mx-1">
+            <button class="card card-link" id="prague" type="submit">
+              <img
+                src="./images/prague.jpg"
+                class="img-top"
+                alt="Prague, Czech Republic"
+              />
+              <p class="city-name">Prague, Czech Republic</p>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-weather">
+        <h2 id="current-city">Paris</h2>
+
+        <p class="temperature degree-number">
+          <span id="temp">13</span>°<span class="degree-symbol">C</span>
+        </p>
+        <img
+          src="http://openweathermap.org/img/wn/02d@2x.png"
+          alt="Weather icon"
+          class="weather-symbol-primary"
+          id="icon"
+        />
+
+        <ul class="weather-characteristics">
+          <li class="characteristics-item">
+            <p>Pressure: <span id="pressure">1017</span> mbar</p>
+          </li>
+          <li class="characteristics-item">
+            <p>Humidity: <span id="humidity">91</span>%</p>
+          </li>
+          <li class="characteristics-item">
+            <p>Wind: <span id="wind">5</span> km/h</p>
+          </li>
+        </ul>
+
+        <p class="weather-date" id="current-date">Tuesday 11:30</p>
+      </div>
+
+      <ul class="weather-forecast">
+        <li class="forecast-item">
+          <div class="forecast-card">
+            <img
+              src="./images/icons/03d.png"
+              alt="Light rain"
+              class="weather-symbol-secondary"
+            />
+            <p>Tue</p>
+          </div>
+        </li>
+        <li class="forecast-item">
+          <div class="forecast-card">
+            <img
+              src="./images/icons/04d.png"
+              alt="Heavy rain"
+              class="weather-symbol-secondary"
+            />
+            <p>Wed</p>
+          </div>
+        </li>
+        <li class="forecast-item">
+          <div class="forecast-card">
+            <img
+              src="./images/icons/09d.png"
+              alt="Cloudy"
+              class="weather-symbol-secondary"
+            />
+            <p>Thu</p>
+          </div>
+        </li>
+        <li class="forecast-item">
+          <div class="forecast-card">
+            <img
+              src="./images/icons/02d.png"
+              alt="Stormy"
+              class="weather-symbol-secondary"
+            />
+            <p>Fri</p>
+          </div>
+        </li>
+        <li class="forecast-item">
+          <div class="forecast-card">
+            <img
+              src="./images/icons/01d.png"
+              alt="Cloudy"
+              class="weather-symbol-secondary"
+            />
+            <p>Sat</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>

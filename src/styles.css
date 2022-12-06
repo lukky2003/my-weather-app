@@ -1,0 +1,149 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #233142;
+}
+
+.container-main {
+  margin: 25px auto;
+  height: 150%;
+  max-width: 700px;
+  padding: 30px 30px 30px 30px;
+  border: solid grey 1px;
+  border-radius: 20px;
+  background: linear-gradient(
+    109.6deg,
+    rgb(154, 214, 212) 2%,
+    rgb(255, 233, 171) 100.2%
+  );
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.test-div {
+  display: inline;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 400px;
+  margin-top: 25px;
+}
+
+input[type="search"] {
+  width: 100px;
+  height: 30px;
+  padding-right: 50px;
+  font-size: 10px;
+}
+
+.example {
+  font-size: 10px;
+  color: #fff;
+  margin: 0px 0px 5px;
+  height: 30px;
+  width: 80px;
+  z-index: 100;
+  background: #233142;
+}
+
+#current-location-btn {
+  color: #233142;
+  background: #fae8ae;
+  margin-left: 10px;
+  border-radius: 6px;
+}
+
+.row {
+  display: flex;
+}
+
+.card {
+  background: none;
+  border: none;
+  text-align: center;
+  transition: 150ms all ease-in-out;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #233142;
+  transition: transform 0.2s;
+}
+
+.card-link:hover {
+  color: #233142;
+  transform: scale(1.2);
+}
+
+.img-top {
+  max-width: 60px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  transition: 150ms all ease-in-out;
+}
+
+.img-top:hover {
+  width: 150%;
+  opacity: 100%;
+}
+
+.city-name {
+  font-size: 6px;
+  text-align: center;
+  max-width: 60px;
+}
+
+h2 {
+  font-size: 14px;
+  margin-left: 20px;
+  font-weight: bold;
+  margin-top: -40px;
+}
+
+.temperature {
+  display: inline;
+  font-size: 48px;
+  margin-left: 40px;
+}
+
+.degree-symbol {
+  font-size: 18px;
+  vertical-align: text-top;
+}
+
+.weather-symbol-primary {
+  max-width: 80px;
+  vertical-align: top;
+  margin-left: 30px;
+}
+
+.weather-characteristics {
+  display: inline;
+  font-size: 10px;
+  list-style: none;
+  line-height: 30%;
+  float: right;
+  padding-right: 60px;
+  padding-top: 15px;
+}
+
+.weather-date {
+  font-size: 12px;
+  margin-left: 20px;
+  word-spacing: 2em;
+}
+
+.weather-forecast {
+  columns: 5;
+  font-size: 8px;
+  list-style: none;
+  margin: 0 auto;
+  margin-left: -25px;
+  text-align: center;
+}
+
+.weather-symbol-secondary {
+  width: 50px;
+}
