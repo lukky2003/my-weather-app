@@ -27,27 +27,30 @@ function formatDate() {
 formatDate();
 
 function showWeather(response) {
-  document.querySelector("#current-city").innerHTML = response.data.name;
+  console.log(response);
+  document.querySelector("#current-city").innerHTML = response.data.city;
   document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
 
   document.querySelector("#pressure").innerHTML = Math.round(
-    response.data.main.pressure
+    response.data.temperature.pressure
   );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
+
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
   document.getElementById("icon").src =
-    "https://openweathermap.org/img/wn/" +
-    response.data.weather[0].icon +
-    "@2x.png";
+    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/" +
+    response.data.condition.icon +
+    ".png";
 }
 
 function searchNewCity(city) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "dfb3o94a207df9d14tcc4fa2a203a2a7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -58,8 +61,8 @@ function searchInput(event) {
 }
 
 function searchLocation(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "dfb3o94a207df9d14tcc4fa2a203a2a7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
 
   axios.get(apiUrl).then(showWeather);
 }
@@ -70,38 +73,23 @@ function currentLocation(event) {
 }
 
 function locationBarcelona(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Barcelona&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  searchNewCity("Barcelona");
 }
 
 function locationBerlin(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  searchNewCity("Berlin");
 }
 
 function locationNewYork(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  searchNewCity("New York");
 }
 
 function locationParis(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Paris&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  searchNewCity("Paris");
 }
 
 function locationPrague(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Prague&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  searchNewCity("Prague");
 }
 
 let currentLocationBtn = document.querySelector("#current-location-btn");
