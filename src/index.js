@@ -27,7 +27,6 @@ function formatDate() {
 formatDate();
 
 function showWeather(response) {
-  console.log(response);
   document.querySelector("#current-city").innerHTML = response.data.city;
   document.querySelector("#temp").innerHTML = Math.round(
     response.data.temperature.current
@@ -50,7 +49,7 @@ function showWeather(response) {
 
 function searchNewCity(city) {
   let apiKey = "dfb3o94a207df9d14tcc4fa2a203a2a7";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -62,7 +61,7 @@ function searchInput(event) {
 
 function searchLocation(position) {
   let apiKey = "dfb3o94a207df9d14tcc4fa2a203a2a7";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
 }
