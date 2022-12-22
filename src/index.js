@@ -26,6 +26,32 @@ function formatDate() {
 
 formatDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <img
+              src="./images/icons/03d.png"
+              alt="Light rain"
+              class="weather-symbol-secondary"
+            />
+            <p class="weather-forecast-date">${day}</p>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   document.querySelector("#current-city").innerHTML = response.data.city;
   document.querySelector("#temp").innerHTML = Math.round(
@@ -113,3 +139,4 @@ let searchForm = document.querySelector(".input-group");
 searchForm.addEventListener("submit", searchInput);
 
 searchNewCity("Paris");
+displayForecast();
