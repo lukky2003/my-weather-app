@@ -26,25 +26,38 @@ function formatDate() {
 
 formatDate();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  console.log(response);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `
           <div class="col-2">
             <img
-              src="./images/icons/03d.png"
-              alt="Light rain"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png"
+              alt=""
               class="weather-symbol-secondary"
             />
-            <p class="weather-forecast-date">${day}</p>
+            <p class="weather-forecast-date">${formatDay(forecastDay.time)}</p>
           </div>
         `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div`;
